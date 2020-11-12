@@ -6,6 +6,7 @@
 	"dependencies": {
 		"@node-rpc/client": "^2.3.1",
 		"axios": "^0.21.0",
+		"contract": "Fraqs/LSD-Contract",
 		"ejs": "^3.1.5",
 		"express": "^4.17.1",
 		"ts-node": "^9.0.0",
