@@ -17,6 +17,7 @@ _Large System Development, fall 2020_
   
 - [Setup](/#setup )
 - [Usage](/#usage )
+  - [Testing](/#testing )
   - [Development](/#development )
   - [Production](/#production )
   
@@ -37,6 +38,16 @@ yarn add Fraqs/LSD-Project.Contract
   
 ##  Usage
   
+  
+###  Testing
+  
+  
+The test is handled by the test framework Jest.
+  
+```bash
+# bash
+yarn test
+```
   
 ###  Development
   

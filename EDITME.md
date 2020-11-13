@@ -44,6 +44,15 @@ yarn add Fraqs/LSD-Project.Contract
 
 ## Usage
 
+### Testing
+
+The test is handled by the test framework Jest.
+
+```bash
+# bash
+yarn test
+```
+
 ### Development
 
 The development environment uses a mock/ fake Contract. This is used when the backend isn't connected to the frontend.
