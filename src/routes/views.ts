@@ -2,20 +2,18 @@
 import * as express from 'express';
 
 // classes, interfaces & functions
-import Contract from '../contract/Contract';
-import UserDTO from '../contract/UserDTO';
-const contract = new Contract();
+import Contract from '../contract';
 
 const router: express.Router = express.Router();
 
 router.get('/', async (req, res) => {
-	const _string: string = await contract.getString();
-	const _number: number = await contract.getNumber();
-	const _boolean: boolean = await contract.getBoolean();
-	const _user: UserDTO = await contract.getUser();
-	console.log(_user.fname, _user.lname);
+	const contract = new Contract();
 
-	console.table({ _string, _number, _boolean, _user });
+	try {
+		contract.getCarrierInformation('test');
+	} catch (error) {
+		console.log(error);
+	}
 
 	// stephan syntax:: just a complex way to make a simple list
 	const items: string[] = [...Array(20)].map((_, index) => `List item ${index + 1}`);

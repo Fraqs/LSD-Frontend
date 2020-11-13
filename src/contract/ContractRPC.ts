@@ -3,37 +3,51 @@ import { jsonSerializer as serializer } from '@node-rpc/client/dist/serializers/
 import { axiosXHR as xhr } from '@node-rpc/client/dist/xhr/axios';
 
 // classes, interfaces & functions
-// import { IContract } from 'contract';
-import IContract from './IContract';
-import UserDTO from './UserDTO';
+import IContract from 'Contract';
+import { IAirportDetail, IAirportIdentifier } from 'Contract/src/dto/airport';
+import { IBookingDetail, IBookingIdentifier } from 'Contract/src/dto/booking';
+import { ICarrierDetail } from 'Contract/src/dto/carrier';
+import { IFlightSummary, IFlightIdentifier } from 'Contract/src/dto/flight';
+import { IReservationSummary, IReservationDetail } from 'Contract/src/dto/reservation';
 
-// environments variables -> .env or from custom module
-const RCP_PORT: number = 3000;
-const endpoint: string = `http://localhost:${RCP_PORT}`;
+import { NotFoundError, InconsistentLengthError, InvalidInputError } from 'contract/src/eto';
 
+const endpoint: string = process.env.RPC_HOST || 'Default string, throws error!';
 const rpc = createClient<IContract>({ endpoint, serializer, xhr });
 
 export default class ContractRPC implements IContract {
-	async getUser(): Promise<UserDTO> {
-		const result: any = await rpc.getUser().call();
+	async getCarrierInformation(iata: string): Promise<ICarrierDetail> {
+		const response: any = await rpc.getCarrierInformation(iata).call();
+
+		// ATT:: handle all errors...
+		// if (response?.success) throw new NotFoundError('Carrier not found');
 
 		// duck typing -> le Quack 🦆
-		const user: UserDTO = result?.data;
-		return user;
+		const carrierDetail: ICarrierDetail = response?.data;
+		return carrierDetail;
 	}
 
-	async getString(): Promise<string> {
-		const result: any = await rpc.getString().call();
-		return String(result?.data);
+	getAirportInformation(iata: string): Promise<IAirportDetail> {
+		throw new Error('Method not implemented.');
 	}
 
-	async getNumber(): Promise<number> {
-		const result: any = await rpc.getNumber().call();
-		return Number(result?.data);
+	getFlightsAvailable(departure: IAirportIdentifier, arrival: IAirportIdentifier, depart: number): Promise<IFlightSummary[]> {
+		throw new Error('Method not implemented.');
 	}
 
-	async getBoolean(): Promise<boolean> {
-		const result: any = await rpc.getBoolean().call();
-		return Boolean(result?.data);
+	reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
+		throw new Error('Method not implemented.');
+	}
+
+	createBooking(reservationDetails: IReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<IBookingDetail> {
+		throw new Error('Method not implemented.');
+	}
+
+	getBooking(id: IBookingIdentifier): Promise<IBookingDetail> {
+		throw new Error('Method not implemented.');
+	}
+
+	cancelBooking(id: IBookingIdentifier): Promise<void> {
+		throw new Error('Method not implemented.');
 	}
 }

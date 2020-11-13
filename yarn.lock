@@ -1768,7 +1768,7 @@ content-type@~1.0.4:
 
 contract@Fraqs/LSD-Contract:
   version "1.0.0"
-  resolved "https://codeload.github.com/Fraqs/LSD-Contract/tar.gz/0907bba9c2eb62d19d9ee3b012a8ce990f38cc6b"
+  resolved "https://codeload.github.com/Fraqs/LSD-Contract/tar.gz/0556dadb5677336c01555c2e960f1acc41f73422"
   dependencies:
     moment-timezone "^0.5.31"
     typescript "^4.0.5"
@@ -1965,6 +1965,11 @@ domexception@^2.0.1:
   integrity sha512-yxJ2mFy/sibVQlu5qHjOkf9J3K6zgmCxgJ94u2EdvDOV09H+32LtRswEcUsmUWN72pVLOEnTSRaIVVzVQgS0dg==
   dependencies:
     webidl-conversions "^5.0.0"
+
+dotenv@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
