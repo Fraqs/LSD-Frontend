@@ -81,7 +81,7 @@ yarn test
 
 ### Development
 
-The development environment uses a mock/ fake Contract. This is used when the backend isn't connected to the frontend.
+The development environment uses a `ContractMock`. This is used when the backend isn't connected to the frontend.
 
 > Development environment can be set in the `.evn` as `NODE_ENV=development`.
 
