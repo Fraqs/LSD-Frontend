@@ -30,6 +30,8 @@ _Large System Development, fall 2020_
 
 ## Setup
 
+### Dependency Installation
+
 ```bash
 # bash
 yarn install
@@ -43,6 +45,15 @@ yarn add Fraqs/LSD-Project.Contract
 ```
 
 [Contract Documentation](https://github.com/Fraqs/LSD-Project.Contract)
+
+### Environment Configuration
+
+Create a `.evn` file in the root of the project containing the content below.
+
+```bash
+NODE_ENV=development
+RPC_HOST=http://localhost:3000
+```
 
 ## Source Structure
 
@@ -76,6 +87,8 @@ The development environment uses a mock/ fake Contract. This is used when the ba
 # bash
 yarn dev
 ```
+
+> Development environment can be set in the `.evn`
 
 ### Production
 
