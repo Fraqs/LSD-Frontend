@@ -31,6 +31,8 @@ yarn install
   
 > If the contract isn't installed add it with yarn.
   
+[Fraqs/LSD-Project.Contract](https://github.com/Fraqs/LSD-Project.Contract )
+  
 ```bash
 # bash
 yarn add Fraqs/LSD-Project.Contract
