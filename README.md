@@ -10,7 +10,9 @@ _Large System Development, fall 2020_
   
 **Stephan Duelund Djurhuus**
   
-![cover image](/assets/cover.png?0.1539541974612908 )  
+![Node.js CI](https://github.com/Fraqs/LSD-Project.Frontend/workflows/Node.js%20CI/badge.svg )
+  
+![cover image](/assets/cover.png?0.7489211529297499 )  
   
 ##  Content
   
