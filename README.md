@@ -12,7 +12,7 @@ _Large System Development, fall 2020_
   
 ![Node.js CI](https://github.com/Fraqs/LSD-Project.Frontend/workflows/Node.js%20CI/badge.svg )
   
-![cover image](/assets/cover.png?0.6587675916918267 )  
+![cover image](/assets/cover.png?0.4097457805725657 )  
   
 ##  Content
   
@@ -33,6 +33,7 @@ _Large System Development, fall 2020_
 -   [Backend](https://github.com/Fraqs/LSD-Project.Backend ), Handles Database Management.
 -   [Frontend](https://github.com/Fraqs/LSD-Project.Frontend ), Handles REST API and Server Sided Rendering.
 -   [Contract](https://github.com/Fraqs/LSD-Project.Contract ), Handles Contract Interface & Data Transfer Objects.
+-   [Project Wiki](https://github.com/Fraqs/LSD-Project.Contract/wiki ), Assignments & Descriptions
   
 ##  Setup
   
