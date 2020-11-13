@@ -18,7 +18,6 @@ const rpc = createClient<IContract>({ endpoint, serializer, xhr });
 export default class ContractRPC implements IContract {
 	async getCarrierInformation(iata: string): Promise<ICarrierDetail> {
 		const response: any = await rpc.getCarrierInformation(iata).call();
-
 		// ATT:: handle all errors...
 		// if (response?.success) throw new NotFoundError('Carrier not found');
 
@@ -37,6 +36,8 @@ export default class ContractRPC implements IContract {
 
 	async reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
 		const response: any = await rpc.reserveFlight(id, amountSeats).call();
+
+		console.log(response);
 
 		// duck typing -> le Quack 🦆
 		const reservationSummary: IReservationSummary = response?.data;
