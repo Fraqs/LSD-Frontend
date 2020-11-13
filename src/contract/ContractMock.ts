@@ -7,28 +7,35 @@ import { IBookingDetail, IBookingIdentifier } from 'Contract/src/dto/booking';
 import { ICarrierDetail } from 'Contract/src/dto/carrier';
 import { IFlightSummary, IFlightIdentifier } from 'Contract/src/dto/flight';
 import { IReservationSummary, IReservationDetail } from 'Contract/src/dto/reservation';
+import { resolve } from 'path';
 
 // this is a "Fake" but should be mocked in test.
 export default class ContractMock implements IContract {
-	getCarrierInformation(iata: string): Promise<ICarrierDetail> {
+	async getCarrierInformation(iata: string): Promise<ICarrierDetail> {
+		// mock contract method structure (Promises)
+		return new Promise((resolve, reject) => resolve({ iata: 'some code', name: 'some name' }));
+	}
+	async getAirportInformation(iata: string): Promise<IAirportDetail> {
 		throw new Error('Method not implemented.');
 	}
-	getAirportInformation(iata: string): Promise<IAirportDetail> {
+
+	async getFlightsAvailable(departure: IAirportIdentifier, arrival: IAirportIdentifier, depart: number): Promise<IFlightSummary[]> {
 		throw new Error('Method not implemented.');
 	}
-	getFlightsAvailable(departure: IAirportIdentifier, arrival: IAirportIdentifier, depart: number): Promise<IFlightSummary[]> {
+
+	async reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
 		throw new Error('Method not implemented.');
 	}
-	reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
+
+	async createBooking(reservationDetails: IReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<IBookingDetail> {
 		throw new Error('Method not implemented.');
 	}
-	createBooking(reservationDetails: IReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<IBookingDetail> {
+
+	async getBooking(id: IBookingIdentifier): Promise<IBookingDetail> {
 		throw new Error('Method not implemented.');
 	}
-	getBooking(id: IBookingIdentifier): Promise<IBookingDetail> {
-		throw new Error('Method not implemented.');
-	}
-	cancelBooking(id: IBookingIdentifier): Promise<void> {
+
+	async cancelBooking(id: IBookingIdentifier): Promise<void> {
 		throw new Error('Method not implemented.');
 	}
 }
