@@ -3,7 +3,7 @@ import * as express from 'express';
 
 // classes, interfaces & functions
 import Contract from '../contract';
-import { IReservationSummary } from 'Contract/src/dto/reservation';
+import { IReservationSummary } from 'contract/src/dto/reservation';
 
 const contract = new Contract();
 

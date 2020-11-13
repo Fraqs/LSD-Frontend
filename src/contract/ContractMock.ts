@@ -1,13 +1,12 @@
 // classes, interfaces & functions
 // import { IContract } from 'contract';
 
-import IContract from 'Contract';
-import { IAirportDetail, IAirportIdentifier } from 'Contract/src/dto/airport';
-import { IBookingDetail, IBookingIdentifier } from 'Contract/src/dto/booking';
-import { ICarrierDetail } from 'Contract/src/dto/carrier';
-import { IFlightSummary, IFlightIdentifier } from 'Contract/src/dto/flight';
-import { IReservationSummary, IReservationDetail } from 'Contract/src/dto/reservation';
-import { resolve } from 'path';
+import IContract from 'contract';
+import { IAirportDetail, IAirportIdentifier } from 'contract/src/dto/airport';
+import { IBookingDetail, IBookingIdentifier } from 'contract/src/dto/booking';
+import { ICarrierDetail } from 'contract/src/dto/carrier';
+import { IFlightSummary, IFlightIdentifier } from 'contract/src/dto/flight';
+import { IReservationSummary, IReservationDetail } from 'contract/src/dto/reservation';
 
 // this is a "Fake" but should be mocked in test.
 export default class ContractMock implements IContract {
