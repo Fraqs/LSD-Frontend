@@ -16,6 +16,7 @@ _Large System Development, fall 2020_
   
   
 - [Setup](/#setup )
+- [Source Structure](/#source-structure )
 - [Usage](/#usage )
   - [Testing](/#testing )
   - [Development](/#development )
@@ -37,6 +38,20 @@ yarn add Fraqs/LSD-Project.Contract
 ```
   
 [Contract Documentation](https://github.com/Fraqs/LSD-Project.Contract )
+  
+##  Source Structure
+  
+  
+```bash
+src ┐
+    ├ contract/     # the rpc contract and contract mock.
+    ├ routes/       # the views route and api route.
+    ├ views/        # ejs views.
+    ├ static/       # static files for ejs - scripts, styles and images.
+    ├ test/         # test files.
+    └ index.ts      # main file.
+...                 # configuration files
+```
   
 ##  Usage
   
