@@ -12,7 +12,7 @@ _Large System Development, fall 2020_
   
 ![Node.js CI](https://github.com/Fraqs/LSD-Project.Frontend/workflows/Node.js%20CI/badge.svg )
   
-![cover image](/assets/cover.png?0.7489211529297499 )  
+![cover image](/assets/cover.png?0.07695685125321128 )  
   
 ##  Content
   
