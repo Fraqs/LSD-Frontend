@@ -15,6 +15,7 @@ _Large System Development, fall 2020_
 ##  Content
   
   
+- [Components](/#components )
 - [Setup](/#setup )
   - [Dependency Installation](/#dependency-installation )
   - [Environment Configuration](/#environment-configuration )
@@ -23,6 +24,13 @@ _Large System Development, fall 2020_
   - [Testing](/#testing )
   - [Development](/#development )
   - [Production](/#production )
+  
+##  Components
+  
+  
+-   [Backend](https://github.com/Fraqs/LSD-Project.Backend ), Handles Database Management.
+-   [Frontend](https://github.com/Fraqs/LSD-Project.Frontend ), Handles REST API and Server Sided Rendering.
+-   [Contract](https://github.com/Fraqs/LSD-Project.Contract ), Handles Contract Interface & Data Transfer Objects.
   
 ##  Setup
   
