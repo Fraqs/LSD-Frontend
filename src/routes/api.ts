@@ -2,7 +2,10 @@
 import * as express from 'express';
 
 // classes, interfaces & functions
-// import contract from './RPCHandler';
+import Contract from '../contract';
+import { IReservationSummary } from 'Contract/src/dto/reservation';
+
+const contract = new Contract();
 
 const router: express.Router = express.Router();
 
@@ -17,7 +20,10 @@ router.use((req, res, next) => {
 });
 
 // GET Method (Read)
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+	const reservationSummary: IReservationSummary = await contract.reserveFlight({ flightCode: 'some code' }, 123456);
+	console.table(reservationSummary);
+
 	res.send({ method: 'POST', message: 'Hello TypeScript RPC' });
 });
 

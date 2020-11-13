@@ -27,27 +27,31 @@ export default class ContractRPC implements IContract {
 		return carrierDetail;
 	}
 
-	getAirportInformation(iata: string): Promise<IAirportDetail> {
+	async getAirportInformation(iata: string): Promise<IAirportDetail> {
 		throw new Error('Method not implemented.');
 	}
 
-	getFlightsAvailable(departure: IAirportIdentifier, arrival: IAirportIdentifier, depart: number): Promise<IFlightSummary[]> {
+	async getFlightsAvailable(departure: IAirportIdentifier, arrival: IAirportIdentifier, depart: number): Promise<IFlightSummary[]> {
 		throw new Error('Method not implemented.');
 	}
 
-	reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
+	async reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
+		const response: any = await rpc.reserveFlight(id, amountSeats).call();
+
+		// duck typing -> le Quack 🦆
+		const reservationSummary: IReservationSummary = response?.data;
+		return reservationSummary;
+	}
+
+	async createBooking(reservationDetails: IReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<IBookingDetail> {
 		throw new Error('Method not implemented.');
 	}
 
-	createBooking(reservationDetails: IReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<IBookingDetail> {
+	async getBooking(id: IBookingIdentifier): Promise<IBookingDetail> {
 		throw new Error('Method not implemented.');
 	}
 
-	getBooking(id: IBookingIdentifier): Promise<IBookingDetail> {
-		throw new Error('Method not implemented.');
-	}
-
-	cancelBooking(id: IBookingIdentifier): Promise<void> {
+	async cancelBooking(id: IBookingIdentifier): Promise<void> {
 		throw new Error('Method not implemented.');
 	}
 }
