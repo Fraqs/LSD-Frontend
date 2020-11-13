@@ -86,17 +86,19 @@ yarn test
   
 The development environment uses a mock/ fake Contract. This is used when the backend isn't connected to the frontend.
   
+> Development environment can be set in the `.evn` as `NODE_ENV=development`
+  
 ```bash
 # bash
 yarn dev
 ```
   
-> Development environment can be set in the `.evn`
-  
 ###  Production
   
   
 The production environment uses the RPC Contract. This is used when the backend is connected to the frontend.
+  
+> Production environment can be set in the `.evn` as `NODE_ENV=production`.
   
 ```bash
 # bash
