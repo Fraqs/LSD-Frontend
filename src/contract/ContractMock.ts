@@ -1,6 +1,4 @@
 // classes, interfaces & functions
-// import { IContract } from 'contract';
-
 import IContract from 'contract';
 import { IAirportDetail, IAirportIdentifier } from 'contract/src/dto/airport';
 import { IBookingDetail, IBookingIdentifier } from 'contract/src/dto/booking';

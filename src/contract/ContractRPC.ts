@@ -10,7 +10,7 @@ import { ICarrierDetail } from 'contract/src/dto/carrier';
 import { IFlightSummary, IFlightIdentifier } from 'contract/src/dto/flight';
 import { IReservationSummary, IReservationDetail } from 'contract/src/dto/reservation';
 
-import { NotFoundError, InconsistentLengthError, InvalidInputError } from 'contract/src/eto';
+// import { NotFoundError, InconsistentLengthError, InvalidInputError } from 'contract/src/eto';
 
 const endpoint: string = process.env.RPC_HOST || 'Default string, throws error!';
 const rpc = createClient<IContract>({ endpoint, serializer, xhr });

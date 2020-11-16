@@ -1768,7 +1768,7 @@ content-type@~1.0.4:
 
 contract@Fraqs/LSD-Project.Contract:
   version "1.0.0"
-  resolved "https://codeload.github.com/Fraqs/LSD-Project.Contract/tar.gz/72b8ae9fd0babfee3db2f22dc231a233e9c6e3c6"
+  resolved "https://codeload.github.com/Fraqs/LSD-Project.Contract/tar.gz/0fadbd14c4f26b39567b679cbba6e3bd0c60dd79"
   dependencies:
     typescript "^4.0.5"
 
