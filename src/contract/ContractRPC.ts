@@ -4,55 +4,52 @@ import { axiosXHR as xhr } from '@node-rpc/client/dist/xhr/axios';
 
 // classes, interfaces & functions
 import IContract from 'contract';
-import { IAirportDetail, IAirportIdentifier } from 'contract/src/dto/airport';
-import { IBookingDetail, IBookingIdentifier } from 'contract/src/dto/booking';
-import { ICarrierDetail } from 'contract/src/dto/carrier';
-import { IFlightSummary, IFlightIdentifier } from 'contract/src/dto/flight';
-import { IReservationSummary, IReservationDetail } from 'contract/src/dto/reservation';
+import { AirportDetail, AirportIdentifier } from 'contract/dist/dto/airport';
+import { BookingDetail, BookingIdentifier } from 'contract/dist/dto/booking';
+import { CarrierDetail } from 'contract/dist/dto/carrier';
+import { FlightSummary, FlightIdentifier } from 'contract/dist/dto/flight';
+import { ReservationSummary, ReservationDetail } from 'contract/dist/dto/reservation';
 
-// import { NotFoundError, InconsistentLengthError, InvalidInputError } from 'contract/src/eto';
+import { NotFoundError, InconsistentLengthError, InvalidInputError } from 'contract/dist/eto';
 
 const endpoint: string = process.env.RPC_HOST || 'Default string, throws error!';
 const rpc = createClient<IContract>({ endpoint, serializer, xhr });
 
 export default class ContractRPC implements IContract {
-	async getCarrierInformation(iata: string): Promise<ICarrierDetail> {
+	async getCarrierInformation(iata: string): Promise<CarrierDetail> {
 		const response: any = await rpc.getCarrierInformation(iata).call();
 		// ATT:: handle all errors...
 		// if (response?.success) throw new NotFoundError('Carrier not found');
 
 		// duck typing -> le Quack 🦆
-		const carrierDetail: ICarrierDetail = response?.data;
+		const carrierDetail: CarrierDetail = response?.data;
 		return carrierDetail;
 	}
 
-	async getAirportInformation(iata: string): Promise<IAirportDetail> {
+	async getAirportInformation(iata: string): Promise<AirportDetail> {
+		throw new Error('Method not implemented.');
+	}
+	async getFlightsAvailable(departure: AirportIdentifier, arrival: AirportIdentifier, depart: number): Promise<FlightSummary[]> {
 		throw new Error('Method not implemented.');
 	}
 
-	async getFlightsAvailable(departure: IAirportIdentifier, arrival: IAirportIdentifier, depart: number): Promise<IFlightSummary[]> {
-		throw new Error('Method not implemented.');
-	}
-
-	async reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
+	async reserveFlight(id: FlightIdentifier, amountSeats: number): Promise<ReservationSummary> {
 		const response: any = await rpc.reserveFlight(id, amountSeats).call();
 
 		console.log(response);
 
 		// duck typing -> le Quack 🦆
-		const reservationSummary: IReservationSummary = response?.data;
+		const reservationSummary: ReservationSummary = response?.data;
 		return reservationSummary;
 	}
 
-	async createBooking(reservationDetails: IReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<IBookingDetail> {
+	async createBooking(reservationDetails: ReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<BookingDetail> {
 		throw new Error('Method not implemented.');
 	}
-
-	async getBooking(id: IBookingIdentifier): Promise<IBookingDetail> {
+	async getBooking(id: BookingIdentifier): Promise<BookingDetail> {
 		throw new Error('Method not implemented.');
 	}
-
-	async cancelBooking(id: IBookingIdentifier): Promise<void> {
+	async cancelBooking(id: BookingIdentifier): Promise<void> {
 		throw new Error('Method not implemented.');
 	}
 }

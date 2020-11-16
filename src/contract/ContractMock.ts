@@ -1,38 +1,33 @@
 // classes, interfaces & functions
 import IContract from 'contract';
-import { IAirportDetail, IAirportIdentifier } from 'contract/src/dto/airport';
-import { IBookingDetail, IBookingIdentifier } from 'contract/src/dto/booking';
-import { ICarrierDetail } from 'contract/src/dto/carrier';
-import { IFlightSummary, IFlightIdentifier } from 'contract/src/dto/flight';
-import { IReservationSummary, IReservationDetail } from 'contract/src/dto/reservation';
+import { AirportDetail, AirportIdentifier } from 'contract/dist/dto/airport';
+import { BookingDetail, BookingIdentifier } from 'contract/dist/dto/booking';
+import { CarrierDetail } from 'contract/dist/dto/carrier';
+import { FlightSummary, FlightIdentifier } from 'contract/dist/dto/flight';
+import { ReservationSummary, ReservationDetail } from 'contract/dist/dto/reservation';
 
 // this is a "Fake" but should be mocked in test.
 export default class ContractMock implements IContract {
-	async getCarrierInformation(iata: string): Promise<ICarrierDetail> {
-		// mock contract method structure (Promises)
+	async getCarrierInformation(iata: string): Promise<CarrierDetail> {
 		return new Promise((resolve, reject) => resolve({ iata: 'some code', name: 'some name' }));
 	}
-	async getAirportInformation(iata: string): Promise<IAirportDetail> {
+
+	async getAirportInformation(iata: string): Promise<AirportDetail> {
 		throw new Error('Method not implemented.');
 	}
-
-	async getFlightsAvailable(departure: IAirportIdentifier, arrival: IAirportIdentifier, depart: number): Promise<IFlightSummary[]> {
+	async getFlightsAvailable(departure: AirportIdentifier, arrival: AirportIdentifier, depart: number): Promise<FlightSummary[]> {
 		throw new Error('Method not implemented.');
 	}
-
-	async reserveFlight(id: IFlightIdentifier, amountSeats: number): Promise<IReservationSummary> {
+	async reserveFlight(id: FlightIdentifier, amountSeats: number): Promise<ReservationSummary> {
 		throw new Error('Method not implemented.');
 	}
-
-	async createBooking(reservationDetails: IReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<IBookingDetail> {
+	async createBooking(reservationDetails: ReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<BookingDetail> {
 		throw new Error('Method not implemented.');
 	}
-
-	async getBooking(id: IBookingIdentifier): Promise<IBookingDetail> {
+	async getBooking(id: BookingIdentifier): Promise<BookingDetail> {
 		throw new Error('Method not implemented.');
 	}
-
-	async cancelBooking(id: IBookingIdentifier): Promise<void> {
+	async cancelBooking(id: BookingIdentifier): Promise<void> {
 		throw new Error('Method not implemented.');
 	}
 }
