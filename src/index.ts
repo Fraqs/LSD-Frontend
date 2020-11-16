@@ -26,5 +26,5 @@ app.use(express.static('src/static'));
 // initiating server
 app.listen(port, () => {
 	console.log('Server running...');
-	console.table({ index: `http://localhost:${port}`, api: `http://localhost:${port}/api/` });
+	console.table({ 'EJS Views': `http://localhost:${port}`, 'REST API': `http://localhost:${port}/api/` });
 });

@@ -12,7 +12,7 @@ _Large System Development, fall 2020_
   
 ![Frontend CI](https://github.com/Fraqs/LSD-Project.Frontend/workflows/Frontend%20CI/badge.svg )
   
-![cover image](/assets/cover.png?0.6870418817275434 )  
+![cover image](/assets/cover.png?0.15176192022901036 )  
   
 ##  Content
   
@@ -23,9 +23,9 @@ _Large System Development, fall 2020_
   - [Environment Configuration](/#environment-configuration )
 - [Source Structure](/#source-structure )
 - [Usage](/#usage )
-  - [Testing](/#testing )
   - [Development](/#development )
   - [Production](/#production )
+  - [Testing](/#testing )
   
 ##  Components
   
@@ -82,15 +82,14 @@ src ┐
 ##  Usage
   
   
-###  Testing
+This frontend application uses to main routes, one for generated `EJS Views` and the another for a `REST API`.
   
+| Target    | Route                     |
+| --------- | ------------------------- |
+| EJS Views | http://localhost:4000     |
+| REST API  | http://localhost:4000/api |
   
-The test is handled by the test framework Jest.
-  
-```bash
-# bash
-yarn test
-```
+> changing the port in .evn will result in different routes.
   
 ###  Development
   
@@ -114,6 +113,16 @@ The production environment uses the RPC Contract. This is used when the backend 
 ```bash
 # bash
 yarn start
+```
+  
+###  Testing
+  
+  
+The test is handled by the test framework Jest.
+  
+```bash
+# bash
+yarn test
 ```
   
 ## 

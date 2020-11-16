@@ -79,14 +79,14 @@ src ┐
 
 ## Usage
 
-### Testing
+This frontend application uses to main routes, one for generated `EJS Views` and the another for a `REST API`.
 
-The test is handled by the test framework Jest.
+| Target    | Route                     |
+| --------- | ------------------------- |
+| EJS Views | http://localhost:4000     |
+| REST API  | http://localhost:4000/api |
 
-```bash
-# bash
-yarn test
-```
+> changing the port in .evn will result in different routes.
 
 ### Development
 
@@ -108,6 +108,15 @@ The production environment uses the RPC Contract. This is used when the backend 
 ```bash
 # bash
 yarn start
+```
+
+### Testing
+
+The test is handled by the test framework Jest.
+
+```bash
+# bash
+yarn test
 ```
 
 ## {ignore=true}
