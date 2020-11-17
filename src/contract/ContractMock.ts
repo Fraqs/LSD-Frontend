@@ -6,18 +6,36 @@ import { CarrierDetail } from 'contract/dist/dto/carrier';
 import { FlightSummary, FlightIdentifier } from 'contract/dist/dto/flight';
 import { ReservationSummary, ReservationDetail } from 'contract/dist/dto/reservation';
 
-// this is a "Fake" but should be mocked in test.
 export default class ContractMock implements IContract {
 	async getCarrierInformation(iata: string): Promise<CarrierDetail> {
-		return new Promise((resolve, reject) => resolve({ iata: 'some code', name: 'some name' }));
+		const carrierDetail: CarrierDetail = { iata, name: 'Carrier Mock Name' };
+		return new Promise((resolve, reject) => resolve(carrierDetail));
 	}
 
 	async getAirportInformation(iata: string): Promise<AirportDetail> {
-		throw new Error('Method not implemented.');
+		const airportDetail: AirportDetail = { iata, name: 'Airport Mock Name', timeZone: 'Mock Timezone' };
+		return new Promise((resolve, reject) => resolve(airportDetail));
 	}
 	async getFlightsAvailable(departure: AirportIdentifier, arrival: AirportIdentifier, depart: number): Promise<FlightSummary[]> {
-		throw new Error('Method not implemented.');
+		const departureAirport: AirportIdentifier = { iata: '' };
+		const arrivalAirport: AirportIdentifier = { iata: '' };
+		const carrier: CarrierDetail = { iata: '', name: '' };
+
+		const flightSummary: FlightSummary = {
+			departureAirport,
+			arrivalAirport,
+			carrier,
+			departureDate: 5,
+			arrivalDate: 10,
+			availableSeats: 9,
+			seatPrice: 500,
+			flightCode: 'abc123',
+		};
+
+		const flightSummaries: FlightSummary[] = [flightSummary];
+		return new Promise((resolve, reject) => resolve(flightSummaries));
 	}
+
 	async reserveFlight(id: FlightIdentifier, amountSeats: number): Promise<ReservationSummary> {
 		throw new Error('Method not implemented.');
 	}

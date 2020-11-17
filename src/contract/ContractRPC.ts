@@ -9,15 +9,16 @@ import { BookingDetail, BookingIdentifier } from 'contract/dist/dto/booking';
 import { CarrierDetail } from 'contract/dist/dto/carrier';
 import { FlightSummary, FlightIdentifier } from 'contract/dist/dto/flight';
 import { ReservationSummary, ReservationDetail } from 'contract/dist/dto/reservation';
-
 import { NotFoundError, InconsistentLengthError, InvalidInputError } from 'contract/dist/eto';
 
+// RPC Configuration
 const endpoint: string = process.env.RPC_HOST || 'Default string, throws error!';
 const rpc = createClient<IContract>({ endpoint, serializer, xhr });
 
 export default class ContractRPC implements IContract {
 	async getCarrierInformation(iata: string): Promise<CarrierDetail> {
 		const response: any = await rpc.getCarrierInformation(iata).call();
+
 		// ATT:: handle all errors...
 		// if (response?.success) throw new NotFoundError('Carrier not found');
 
@@ -27,16 +28,32 @@ export default class ContractRPC implements IContract {
 	}
 
 	async getAirportInformation(iata: string): Promise<AirportDetail> {
-		throw new Error('Method not implemented.');
+		const response: any = await rpc.getAirportInformation(iata).call();
+
+		// ATT:: handle all errors...
+		// if (response?.success) throw new NotFoundError('Carrier not found');
+
+		// duck typing -> le Quack 🦆
+		const airportDetail: AirportDetail = response?.data;
+		return airportDetail;
 	}
+
 	async getFlightsAvailable(departure: AirportIdentifier, arrival: AirportIdentifier, depart: number): Promise<FlightSummary[]> {
-		throw new Error('Method not implemented.');
+		const response: any = await rpc.getFlightsAvailable(departure, arrival, depart).call();
+
+		// ATT:: handle all errors...
+		// if (response?.success) throw new NotFoundError('Carrier not found');
+
+		// duck typing -> le Quack 🦆
+		const flightSummaries: FlightSummary[] = response?.data;
+		return flightSummaries;
 	}
 
 	async reserveFlight(id: FlightIdentifier, amountSeats: number): Promise<ReservationSummary> {
 		const response: any = await rpc.reserveFlight(id, amountSeats).call();
 
-		console.log(response);
+		// ATT:: handle all errors...
+		// if (response?.success) throw new NotFoundError('Carrier not found');
 
 		// duck typing -> le Quack 🦆
 		const reservationSummary: ReservationSummary = response?.data;
@@ -44,12 +61,35 @@ export default class ContractRPC implements IContract {
 	}
 
 	async createBooking(reservationDetails: ReservationDetail[], creditCardNumber: number, frequentFlyerNumber?: number): Promise<BookingDetail> {
-		throw new Error('Method not implemented.');
+		const response: any = await rpc.createBooking(reservationDetails, creditCardNumber, frequentFlyerNumber).call();
+
+		// ATT:: handle all errors...
+		// if (response?.success) throw new NotFoundError('Carrier not found');
+
+		// duck typing -> le Quack 🦆
+		const bookingDetail: BookingDetail = response?.data;
+		return bookingDetail;
 	}
+
 	async getBooking(id: BookingIdentifier): Promise<BookingDetail> {
-		throw new Error('Method not implemented.');
+		const response: any = await rpc.getBooking(id).call();
+
+		// ATT:: handle all errors...
+		// if (response?.success) throw new NotFoundError('Carrier not found');
+
+		// duck typing -> le Quack 🦆
+		const bookingDetail: BookingDetail = response?.data;
+		return bookingDetail;
 	}
+
 	async cancelBooking(id: BookingIdentifier): Promise<void> {
-		throw new Error('Method not implemented.');
+		const response: any = await rpc.cancelBooking(id).call();
+
+		// ATT:: handle all errors...
+		// if (response?.success) throw new NotFoundError('Carrier not found');
+
+		// duck typing -> le Quack 🦆
+		// const bookingDetail: BookingDetail = response?.data;
+		// return bookingDetail;
 	}
 }
